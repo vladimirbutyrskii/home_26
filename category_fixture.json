@@ -1,0 +1,26 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Печенье",
+        "description": "Категория Печенье все подкатегории"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Вода",
+        "description": "Категория Вода все подкатегории"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Чипсы",
+        "description": "Категория Чипсы все подкатегории"
+    }
+}
+]

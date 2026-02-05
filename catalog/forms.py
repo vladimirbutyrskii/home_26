@@ -4,7 +4,14 @@ from django.forms import ModelForm
 from catalog.models import Product
 
 
-class ProductForm(ModelForm):
+class StyleFormMixin:
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = "form-control"
+
+
+class ProductForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Product
         # fields = '__all__'
@@ -32,3 +39,9 @@ class ProductForm(ModelForm):
 
         return description
 
+    def clean_price(self):
+        price = self.cleaned_data["price"]
+        if price < 0:
+            raise ValidationError(f"Цена продукта не может быть отрицательной!")
+
+        return price

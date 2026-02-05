@@ -67,6 +67,12 @@ class Product(models.Model):
         default=0
     )
 
+    new_item = models.BooleanField(
+        verbose_name="Признак новинки",
+        help_text="Введите признак новинки продукта",
+        default=False
+    )
+
     class Meta:
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
